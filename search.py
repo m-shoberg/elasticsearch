@@ -10,9 +10,11 @@ def search_reviews(keyword):
                 'use_ssl': True
             }
         ],
-        verify_certs=False,
+        verify_certs=False, # configure certs for production version
         http_auth=('elastic', 'insert_elastic_password')
     )
+
+    
     
     index_name = "imdb_reviews"
 
@@ -33,5 +35,5 @@ def search_reviews(keyword):
         print("Score:", hit['_score'], "Review:", hit['_source']['review'])
 
 if __name__ == "__main__":
-    keyword = "monkey"  # DEFINE KEY WORD HERE
+    keyword = "keyword"  # DEFINE KEY WORD HERE
     search_reviews(keyword)
